@@ -11,8 +11,9 @@ module.exports = function(environment) {
         'style-src': "'self' 'unsafe-inline' use.typekit.net",
         'frame-src': "s-static.ak.facebook.com static.ak.facebook.com www.facebook.com"
     },
-    modulePrefix: 'ember-todo',
+    modulePrefix: 'hm-ember-todo',
     environment: environment,
+    firebase: 'https://hm-ember-todo.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {

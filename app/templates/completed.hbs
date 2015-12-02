@@ -1,0 +1,15 @@
+<div class="content list">
+	{{input type="text" enter="submitNewTodo" value=newTodo class="text-box" placeholder="Enter your todo item..." autofocus="autofocus"}}
+	{{#each model as |items|}}
+    	<div class="item">
+        	<span class="glyphicon glyphicon-check check icon" {{action 'changeItem' items}}></span>
+        	&nbsp;
+        	<span class="glyphicon glyphicon-pencil pencil icon"></span>
+        	<span class="itemValue">
+                {{input type="text" enter="editItem" value=items.item placeholder=items.item}}
+        		<span class="listItem">{{items.item}}</span>
+        	</span>
+        	<span class="glyphicon glyphicon-trash delete icon" {{action 'deleteItem' items}}></span>
+    	</div>
+  	{{/each}}
+</div>
