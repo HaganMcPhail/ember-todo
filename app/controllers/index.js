@@ -5,24 +5,34 @@ export default Ember.Controller.extend({
     isValid: Ember.computed.gte('newTodo.length', 1),
     actions: {
         submitNewTodo: function() {
-            var item = this.get('newTodo');
+            var _that = this;
+            var newTodoItem = this.get('newTodo');
 
-            if (this.get('newTodo').length) {
-                var newTodo = this.store.createRecord('items', {
-                    item: item,
-                    list: 'todo'
+            if (newTodoItem.length) {
+                var newItem = this.store.createRecord('items', {
+                    item: newTodoItem,
+                    list: 'todo',
+                    isEditing: false
                 });
-                newTodo.save();
+                newItem.save().then(function(){
+                    _that.set('newTodo', '');
+                });
             }
         },
         deleteItem: function(item) {
-            console.log('test');
             item.destroyRecord();
         },
         changeItem: function(item){
-            console.log(item);
+            console.log(item.list);
             item.list = 'completed';
             item.save();
+        },
+        editItem: function(theItem){
+            theItem.set('isEditing', false);
+            theItem.save();
+        },
+        toggleEdit: function(theItem){
+            theItem.set('isEditing', true);
         }
     }
 });

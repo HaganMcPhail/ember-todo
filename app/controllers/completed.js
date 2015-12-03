@@ -20,9 +20,10 @@ export default Ember.Controller.extend({
             item.destroyRecord();
         },
         changeItem: function(item){
-            console.log(item);
-            item.list = 'todo';
-            item.save();
+            var editedItem = this.get('editedItem');
+            console.log(editedItem);
+            // item.list = 'todo';
+            // item.save();
         }
     }
 });

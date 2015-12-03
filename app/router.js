@@ -7,6 +7,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('completed');
+  this.route('edit', { path: '/:item_id/edit' });
 });
 
 export default Router;
