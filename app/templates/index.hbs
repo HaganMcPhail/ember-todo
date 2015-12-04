@@ -1,4 +1,3 @@
-{{input type="text" enter="submitNewTodo" value=newTodo class="text-box" placeholder="Enter your todo item..." autofocus="autofocus"}}
 {{#each model as |items|}}
 	<div class="item">
     	<span class="glyphicon glyphicon-check check icon" {{action 'changeItem' items}}></span>
