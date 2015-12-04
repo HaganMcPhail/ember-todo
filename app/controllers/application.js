@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
                     list: 'todo',
                     isEditing: false
                 }).save().then(function(){
-                    _that.transitionTo('index');
+                    _that.send('routeTodo');
                 });
             }
         }

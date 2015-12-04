@@ -1,17 +1,3 @@
-<!-- {{input type="text" enter="submitNewTodo" value=newTodo class="text-box" placeholder="Enter your todo item..." autofocus="autofocus"}} -->
 {{#each model as |items|}}
-	<div class="item">
-    	<span class="glyphicon glyphicon-unchecked check icon" {{action 'changeItem' items}}></span>
-    	&nbsp;
-    	<span class="glyphicon glyphicon-pencil pencil icon" {{action 'toggleEdit' items}}></span>
-    	<span class="itemValue">
-			{{#if items.isEditing}}
-				{{input type="text" enter="editItem" class="editTb" value=items.item placeholder=items.item}}
-				<span style="margin-left:15px;" class="glyphicon glyphicon-floppy-save icon save" {{action 'editItem' items}}></span>
-			{{else}}
-    			<span class="listItem">{{items.item}}</span>
-			{{/if}}
-    	</span>
-    	<span class="glyphicon glyphicon-trash delete icon" {{action 'deleteItem' items}}></span>
-	</div>
+	{{list-item items=items icon="unchecked" list="completed"}}
 {{/each}}
